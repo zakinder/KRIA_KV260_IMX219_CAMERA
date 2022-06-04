@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="video_process_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="constants_package" />
+            <top_module name="fixed_float_types" />
+            <top_module name="fixed_pkg" />
+            <top_module name="float_pkg" />
+            <top_module name="ports_package" />
+            <top_module name="tb_pkg" />
+            <top_module name="vfp_pkg" />
+            <top_module name="video_process_tb" />
+            <top_module name="vpf_records" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="156.110001 us"></ZoomEndTime>
+      <Cursor1Time time="73.482209 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="421"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="85" />
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/iRgb" type="array">
+      <obj_property name="ElementShortName">iRgb</obj_property>
+      <obj_property name="ObjectShortName">iRgb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/neighboring_pixel_threshold" type="other">
+      <obj_property name="ElementShortName">neighboring_pixel_threshold</obj_property>
+      <obj_property name="ObjectShortName">neighboring_pixel_threshold</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/txCord" type="array">
+      <obj_property name="ElementShortName">txCord</obj_property>
+      <obj_property name="ObjectShortName">txCord</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb" type="array">
+      <obj_property name="ElementShortName">oRgb</obj_property>
+      <obj_property name="ObjectShortName">oRgb</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.valid" type="logic">
+         <obj_property name="ElementShortName">.valid</obj_property>
+         <obj_property name="ObjectShortName">.valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.sof" type="logic">
+         <obj_property name="ElementShortName">.sof</obj_property>
+         <obj_property name="ObjectShortName">.sof</obj_property>
+      </wvobject>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.eol" type="logic">
+         <obj_property name="ElementShortName">.eol</obj_property>
+         <obj_property name="ObjectShortName">.eol</obj_property>
+      </wvobject>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.eof" type="logic">
+         <obj_property name="ElementShortName">.eof</obj_property>
+         <obj_property name="ObjectShortName">.eof</obj_property>
+      </wvobject>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.xcnt" type="other">
+         <obj_property name="ElementShortName">.xcnt</obj_property>
+         <obj_property name="ObjectShortName">.xcnt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.ycnt" type="other">
+         <obj_property name="ElementShortName">.ycnt</obj_property>
+         <obj_property name="ObjectShortName">.ycnt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.red" type="array">
+         <obj_property name="ElementShortName">.red[7:0]</obj_property>
+         <obj_property name="ObjectShortName">.red[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.green" type="array">
+         <obj_property name="ElementShortName">.green[7:0]</obj_property>
+         <obj_property name="ObjectShortName">.green[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/oRgb.blue" type="array">
+         <obj_property name="ElementShortName">.blue[7:0]</obj_property>
+         <obj_property name="ObjectShortName">.blue[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/pixel_threshold_2" type="other">
+      <obj_property name="ElementShortName">pixel_threshold_2</obj_property>
+      <obj_property name="ObjectShortName">pixel_threshold_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row1" type="array">
+      <obj_property name="ElementShortName">row1</obj_property>
+      <obj_property name="ObjectShortName">row1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row2" type="array">
+      <obj_property name="ElementShortName">row2</obj_property>
+      <obj_property name="ObjectShortName">row2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row3" type="array">
+      <obj_property name="ElementShortName">row3</obj_property>
+      <obj_property name="ObjectShortName">row3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row4" type="array">
+      <obj_property name="ElementShortName">row4</obj_property>
+      <obj_property name="ObjectShortName">row4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row5" type="array">
+      <obj_property name="ElementShortName">row5</obj_property>
+      <obj_property name="ObjectShortName">row5</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row6" type="array">
+      <obj_property name="ElementShortName">row6</obj_property>
+      <obj_property name="ObjectShortName">row6</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row7" type="array">
+      <obj_property name="ElementShortName">row7</obj_property>
+      <obj_property name="ObjectShortName">row7</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row8" type="array">
+      <obj_property name="ElementShortName">row8</obj_property>
+      <obj_property name="ObjectShortName">row8</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/row9" type="array">
+      <obj_property name="ElementShortName">row9</obj_property>
+      <obj_property name="ObjectShortName">row9</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/rgb_pixels_9x9" type="array">
+      <obj_property name="ElementShortName">rgb_pixels_9x9</obj_property>
+      <obj_property name="ObjectShortName">rgb_pixels_9x9</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/rgb_9x9" type="array">
+      <obj_property name="ElementShortName">rgb_9x9</obj_property>
+      <obj_property name="ObjectShortName">rgb_9x9</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/rgb_9x9_delta" type="array">
+      <obj_property name="ElementShortName">rgb_9x9_delta</obj_property>
+      <obj_property name="ObjectShortName">rgb_9x9_delta</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/rgb_9x9_detect" type="array">
+      <obj_property name="ElementShortName">rgb_9x9_detect</obj_property>
+      <obj_property name="ObjectShortName">rgb_9x9_detect</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/pix_9x9" type="array">
+      <obj_property name="ElementShortName">pix_9x9</obj_property>
+      <obj_property name="ObjectShortName">pix_9x9</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/sum" type="array">
+      <obj_property name="ElementShortName">sum</obj_property>
+      <obj_property name="ObjectShortName">sum</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_0x" type="array">
+      <obj_property name="ElementShortName">v_tap_0x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_0x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_1x" type="array">
+      <obj_property name="ElementShortName">v_tap_1x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_1x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_2x" type="array">
+      <obj_property name="ElementShortName">v_tap_2x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_2x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_3x" type="array">
+      <obj_property name="ElementShortName">v_tap_3x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_3x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_4x" type="array">
+      <obj_property name="ElementShortName">v_tap_4x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_4x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_5x" type="array">
+      <obj_property name="ElementShortName">v_tap_5x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_5x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_6x" type="array">
+      <obj_property name="ElementShortName">v_tap_6x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_6x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_7x" type="array">
+      <obj_property name="ElementShortName">v_tap_7x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_7x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_71" type="array">
+      <obj_property name="ElementShortName">v_tap_71[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_71[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_72" type="array">
+      <obj_property name="ElementShortName">v_tap_72[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_72[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_73" type="array">
+      <obj_property name="ElementShortName">v_tap_73[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_73[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_74" type="array">
+      <obj_property name="ElementShortName">v_tap_74[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_74[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/v_tap_8x" type="array">
+      <obj_property name="ElementShortName">v_tap_8x[23:0]</obj_property>
+      <obj_property name="ObjectShortName">v_tap_8x[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/tpValid" type="logic">
+      <obj_property name="ElementShortName">tpValid</obj_property>
+      <obj_property name="ObjectShortName">tpValid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/pixels_1_81_enabled" type="logic">
+      <obj_property name="ElementShortName">pixels_1_81_enabled</obj_property>
+      <obj_property name="ObjectShortName">pixels_1_81_enabled</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/Rgb1" type="array">
+      <obj_property name="ElementShortName">Rgb1</obj_property>
+      <obj_property name="ObjectShortName">Rgb1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/Rgb2" type="array">
+      <obj_property name="ElementShortName">Rgb2</obj_property>
+      <obj_property name="ObjectShortName">Rgb2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/Rgb3" type="array">
+      <obj_property name="ElementShortName">Rgb3</obj_property>
+      <obj_property name="ObjectShortName">Rgb3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/rgbSyncValid" type="array">
+      <obj_property name="ElementShortName">rgbSyncValid[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rgbSyncValid[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/rgbSyncEol" type="array">
+      <obj_property name="ElementShortName">rgbSyncEol[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rgbSyncEol[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/rgbSyncSof" type="array">
+      <obj_property name="ElementShortName">rgbSyncSof[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rgbSyncSof[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s1" type="array">
+      <obj_property name="ElementShortName">crd_s1</obj_property>
+      <obj_property name="ObjectShortName">crd_s1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s2" type="array">
+      <obj_property name="ElementShortName">crd_s2</obj_property>
+      <obj_property name="ObjectShortName">crd_s2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s3" type="array">
+      <obj_property name="ElementShortName">crd_s3</obj_property>
+      <obj_property name="ObjectShortName">crd_s3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s4" type="array">
+      <obj_property name="ElementShortName">crd_s4</obj_property>
+      <obj_property name="ObjectShortName">crd_s4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s5" type="array">
+      <obj_property name="ElementShortName">crd_s5</obj_property>
+      <obj_property name="ObjectShortName">crd_s5</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s6" type="array">
+      <obj_property name="ElementShortName">crd_s6</obj_property>
+      <obj_property name="ObjectShortName">crd_s6</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s7" type="array">
+      <obj_property name="ElementShortName">crd_s7</obj_property>
+      <obj_property name="ObjectShortName">crd_s7</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s8" type="array">
+      <obj_property name="ElementShortName">crd_s8</obj_property>
+      <obj_property name="ObjectShortName">crd_s8</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s9" type="array">
+      <obj_property name="ElementShortName">crd_s9</obj_property>
+      <obj_property name="ObjectShortName">crd_s9</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s10" type="array">
+      <obj_property name="ElementShortName">crd_s10</obj_property>
+      <obj_property name="ObjectShortName">crd_s10</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s11" type="array">
+      <obj_property name="ElementShortName">crd_s11</obj_property>
+      <obj_property name="ObjectShortName">crd_s11</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s12" type="array">
+      <obj_property name="ElementShortName">crd_s12</obj_property>
+      <obj_property name="ObjectShortName">crd_s12</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s13" type="array">
+      <obj_property name="ElementShortName">crd_s13</obj_property>
+      <obj_property name="ObjectShortName">crd_s13</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s14" type="array">
+      <obj_property name="ElementShortName">crd_s14</obj_property>
+      <obj_property name="ObjectShortName">crd_s14</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s15" type="array">
+      <obj_property name="ElementShortName">crd_s15</obj_property>
+      <obj_property name="ObjectShortName">crd_s15</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s16" type="array">
+      <obj_property name="ElementShortName">crd_s16</obj_property>
+      <obj_property name="ObjectShortName">crd_s16</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s17" type="array">
+      <obj_property name="ElementShortName">crd_s17</obj_property>
+      <obj_property name="ObjectShortName">crd_s17</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s18" type="array">
+      <obj_property name="ElementShortName">crd_s18</obj_property>
+      <obj_property name="ObjectShortName">crd_s18</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s19" type="array">
+      <obj_property name="ElementShortName">crd_s19</obj_property>
+      <obj_property name="ObjectShortName">crd_s19</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s20" type="array">
+      <obj_property name="ElementShortName">crd_s20</obj_property>
+      <obj_property name="ObjectShortName">crd_s20</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s21" type="array">
+      <obj_property name="ElementShortName">crd_s21</obj_property>
+      <obj_property name="ObjectShortName">crd_s21</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s22" type="array">
+      <obj_property name="ElementShortName">crd_s22</obj_property>
+      <obj_property name="ObjectShortName">crd_s22</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s23" type="array">
+      <obj_property name="ElementShortName">crd_s23</obj_property>
+      <obj_property name="ObjectShortName">crd_s23</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s24" type="array">
+      <obj_property name="ElementShortName">crd_s24</obj_property>
+      <obj_property name="ObjectShortName">crd_s24</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s25" type="array">
+      <obj_property name="ElementShortName">crd_s25</obj_property>
+      <obj_property name="ObjectShortName">crd_s25</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s26" type="array">
+      <obj_property name="ElementShortName">crd_s26</obj_property>
+      <obj_property name="ObjectShortName">crd_s26</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s27" type="array">
+      <obj_property name="ElementShortName">crd_s27</obj_property>
+      <obj_property name="ObjectShortName">crd_s27</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s28" type="array">
+      <obj_property name="ElementShortName">crd_s28</obj_property>
+      <obj_property name="ObjectShortName">crd_s28</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s29" type="array">
+      <obj_property name="ElementShortName">crd_s29</obj_property>
+      <obj_property name="ObjectShortName">crd_s29</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s30" type="array">
+      <obj_property name="ElementShortName">crd_s30</obj_property>
+      <obj_property name="ObjectShortName">crd_s30</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s31" type="array">
+      <obj_property name="ElementShortName">crd_s31</obj_property>
+      <obj_property name="ObjectShortName">crd_s31</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s32" type="array">
+      <obj_property name="ElementShortName">crd_s32</obj_property>
+      <obj_property name="ObjectShortName">crd_s32</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s33" type="array">
+      <obj_property name="ElementShortName">crd_s33</obj_property>
+      <obj_property name="ObjectShortName">crd_s33</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s34" type="array">
+      <obj_property name="ElementShortName">crd_s34</obj_property>
+      <obj_property name="ObjectShortName">crd_s34</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s35" type="array">
+      <obj_property name="ElementShortName">crd_s35</obj_property>
+      <obj_property name="ObjectShortName">crd_s35</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s36" type="array">
+      <obj_property name="ElementShortName">crd_s36</obj_property>
+      <obj_property name="ObjectShortName">crd_s36</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s37" type="array">
+      <obj_property name="ElementShortName">crd_s37</obj_property>
+      <obj_property name="ObjectShortName">crd_s37</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s38" type="array">
+      <obj_property name="ElementShortName">crd_s38</obj_property>
+      <obj_property name="ObjectShortName">crd_s38</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s39" type="array">
+      <obj_property name="ElementShortName">crd_s39</obj_property>
+      <obj_property name="ObjectShortName">crd_s39</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/crd_s40" type="array">
+      <obj_property name="ElementShortName">crd_s40</obj_property>
+      <obj_property name="ObjectShortName">crd_s40</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/img_width" type="other">
+      <obj_property name="ElementShortName">img_width</obj_property>
+      <obj_property name="ObjectShortName">img_width</obj_property>
+   </wvobject>
+   <wvobject fp_name="/video_process_tb/VFP_V1_0_INST/recolor_space_2_inst/i_data_width" type="other">
+      <obj_property name="ElementShortName">i_data_width</obj_property>
+      <obj_property name="ObjectShortName">i_data_width</obj_property>
+   </wvobject>
+</wave_config>
