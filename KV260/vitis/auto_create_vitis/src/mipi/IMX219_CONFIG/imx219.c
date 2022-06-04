@@ -220,7 +220,7 @@ int sensor_init(XIicPs *IicInstance)
 	{
 		printf("Got ov5640 id, %x %x\r\n", sensor_id[0], sensor_id[1]);
 	}
-	usleep(100000);
+	usleep(10000);
 #if P1080 == 1
 	//1080p 30fps
 	sensor_write_array(IicInstance,cfg_1080p_30fps);

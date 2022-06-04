@@ -3,7 +3,7 @@
 #define __SYSTEM_CONFIG_DEFINES_H__
 #include "xparameters.h"
 
-#define READ_WRITE_MUL_FACTOR 0x10
+
 #define DEFAULT_HYPERTERMINAL_UART_ID 	XPAR_PS7_UART_1_DEVICE_ID
 #define UART_BASEADDR        			XPAR_PSU_UART_1_BASEADDR
 #define D5M_BASE        			    XPAR_PS_VIDEO_RX_VIDEO_VFP_0_VFPCONFIG_BASEADDR
@@ -77,71 +77,16 @@
 #define KEYPRESS_ARROW_LEFT     242
 #define KEYPRESS_ARROW_RIGHT    243
 #define KEYPRESS_END            244
-/*****************************************************************************************************************/
 #define menu_select             1
 #define menuCheck               19
-#define kernalCoef              0
-/*****************************************************************************************************************/
-
-
-
-#define kernalconfig            0x6769666E
 #define clear                   0x10ECC0
 #define mainmenu                0x4773053D
-#define uart_0_baseaddr         0xe0000000
-
-
-#define timex                   0x137C66
-#define display1                0x429F579F
-#define display2                0x429F57A0
-#define display3                0x429F57A1
-#define display5                0x429F57A3
-#define display6                0x429F57A4
 #define quit                    0x1EBAA
-#define pl_testpattern          0x65747461
-#define hdmi                    0x1C1FB
-#define vga                     0x327F
-#define xbright                 0xA8B548
-#define blur                    0x1AE04
-#define emboss                  0xAC6E0D
-#define sharp                   0x134D38
-#define hsv                     0x2D94
-#define hsl                     0x2D8A
-#define rgb                     0x30F0
-#define rgbpoi                  0xBF59FF
-#define sobel                   0x13686E
-#define prewit                  0xBE08B2
-#define prewitt                 0x76C5768
-#define cgain                   0x10D7F4
 #define menucall                0x47B89810
-/************************************/
-
-#define d5mgain                 0x60FE0B4
-/************************************/
-#define hsvpervalue             0xF43BADEF
-#define yccpervalue             0x5E197EEF
-#define lumvalue                0x4812C2CF
-/************************************/
-#define rgbdetect               0xEB640CB6
 #define kernal                  0xB49AAE
-
 #define quit_current_state      0x71
-
-
-
 #define cmds_quit               0x95BA400A
 #define cmds_space              0x20
 #define cmds_uart               0x95BA4834
-#define cmds_hdmitx             0x7CB0C08C
-#define cmds_videoconfig        0x6F636F65
-#define cmds_readfifo           0x66696664
-#define cmds_fifomode           0x646F6D6F
-#define cmds_fifostatus         0x5B28281D
-#define cmds_gridpoint          0x148D411C
-#define cmds_griddelta          0x148B46A1
-#define sdcard                  0xC06994
-#define wsd                     0x335E
-#define rsd                     0x316A
-
 /*****************************************************************************************************************/
 #endif // __SYSTEM_CONFIG_DEFINES_H__

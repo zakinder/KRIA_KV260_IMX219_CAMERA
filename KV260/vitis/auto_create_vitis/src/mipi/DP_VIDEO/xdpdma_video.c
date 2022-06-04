@@ -98,7 +98,7 @@ Run_Config RunCfg;
 * @note		None
 *
 ******************************************************************************/
-int run_dppsu()
+int run_dppsu(u8* Frame)
 {
 	int Status;
 
@@ -106,7 +106,7 @@ int run_dppsu()
 	//Xil_ICacheDisable();
 
 	xil_printf("DPDMA Generic Video Example Test \r\n");
-	Status = DpdmaVideoExample(&RunCfg);
+	Status = DpdmaVideoExample(&RunCfg,&Frame);
 	if (Status != XST_SUCCESS) {
 			xil_printf("DPDMA Video Example Test Failed\r\n");
 			return XST_FAILURE;
@@ -130,10 +130,11 @@ int run_dppsu()
 * @note		None.
 *
 *****************************************************************************/
-int DpdmaVideoExample(Run_Config *RunCfgPtr)
+int DpdmaVideoExample(Run_Config *RunCfgPtr,u8* Frame)
 
 {
 	u32 Status;
+	//u8 adrSof;
 	/* Initialize the application configuration */
 	InitRunConfig(RunCfgPtr);
 	Status = InitDpDmaSubsystem(RunCfgPtr);
@@ -141,9 +142,11 @@ int DpdmaVideoExample(Run_Config *RunCfgPtr)
 				return XST_FAILURE;
 	}
 
+	//adrSof  = (u8*) Frame;//skip 1st line
+	//printf  ("Generating Overlay:@ Address %x 1ST PIXEL VALUE %i\n",adrSof,(unsigned)(Xil_In8(adrSof) & 0xff));
 	SetupInterrupts(RunCfgPtr);
 	xil_printf("Generating Overlay.....\n\r");
-	GraphicsOverlay(Frame, RunCfgPtr);
+	//GraphicsOverlay(Frame, RunCfgPtr);
 
 	/* Populate the FrameBuffer structure with the frame attributes */
 	FrameBuffer.Address = (INTPTR)Frame;
@@ -175,7 +178,7 @@ void InitRunConfig(Run_Config *RunCfgPtr)
 		RunCfgPtr->IntrPtr   = &Intr;
 		RunCfgPtr->AVBufPtr  = &AVBuf;
 		RunCfgPtr->DpDmaPtr  = &DpDma;
-		RunCfgPtr->VideoMode = XVIDC_VM_1280x720_60_P;
+		RunCfgPtr->VideoMode = XVIDC_VM_1920x1080_60_P;
 		RunCfgPtr->Bpc		 = XVIDC_BPC_8;//XVIDC_BPC_8;
 		RunCfgPtr->ColorEncode			= XDPPSU_CENC_RGB;
 		RunCfgPtr->UseMaxCfgCaps		= 1;

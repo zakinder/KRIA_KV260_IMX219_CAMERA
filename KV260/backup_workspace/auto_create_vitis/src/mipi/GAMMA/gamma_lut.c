@@ -24,7 +24,7 @@ int gamma_lut_init() {
 	XV_gamma_lut_Write_HwReg_gamma_lut_2_Bytes(&gamma_inst, 0,(int *) gamma_reg, 512);
 	XV_gamma_lut_Start(&gamma_inst);
 	XV_gamma_lut_EnableAutoRestart(&gamma_inst);
-	xil_printf("Gamma correction LUT initialized\r\n");
+	//xil_printf("Gamma correction LUT initialized\r\n");
 	return XST_SUCCESS;
 }
 

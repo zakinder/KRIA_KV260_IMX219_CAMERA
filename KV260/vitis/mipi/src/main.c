@@ -27,13 +27,14 @@ u32 *pFrames[DISPLAY_NUM_FRAMES];
 
 int main()
 {
-    video = VMODE_1280x720;
+    video = VMODE_1920x1080;
     init_platform();
     init_camera();
     per_write_reg(REG0,6);
-    displayport_init();
-    displayport_setup_interrupts();
+    //displayport_init();
+    //displayport_setup_interrupts();
     print("Configuration Complete\n\r");
+    tpg_init(1);
     vtc_init(video);
     pFrames[0] = frameBuf[0];
     vdmaConfig = XAxiVdma_LookupConfig(XPAR_AXIVDMA_0_DEVICE_ID);
@@ -53,16 +54,17 @@ int main()
     XAxiVdma_DmaConfig(&vdma, XAXIVDMA_READ, &(vdmaDMA));
     XAxiVdma_DmaSetBufferAddr(&vdma, XAXIVDMA_READ,vdmaDMA.FrameStoreStartAddr);
     xil_printf("frame addr %x\n\r",vdmaDMA.FrameStoreStartAddr[0]);
+	printf  ("Generating Overlay:@ Address %x 1ST PIXEL VALUE %i\n",vdmaDMA.FrameStoreStartAddr[0],(unsigned)(Xil_In8(vdmaDMA.FrameStoreStartAddr[0]) & 0xff));
     XAxiVdma_DmaStart(&vdma, XAXIVDMA_WRITE);
     XAxiVdma_StartParking(&vdma, 0, XAXIVDMA_WRITE);
     XAxiVdma_DmaStart(&vdma, XAXIVDMA_READ);
     XAxiVdma_StartParking(&vdma, 0, XAXIVDMA_READ);
     print("Configuration Complete\n\r");
     gamma_lut_init();
-    tpg_init();
     demosaic_init();
-    run_dppsu();
+    run_dppsu(vdmaDMA.FrameStoreStartAddr[0]);
     print("Entire video pipeline activated\r\n");
+
      while(1){
          menu_calls(TRUE);
      }

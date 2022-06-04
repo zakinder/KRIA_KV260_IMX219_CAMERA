@@ -34,7 +34,7 @@ SOFTWARE.
 #include "xvidc.h"
 #include "../config.h"
 
-int tpg_init() {
+int tpg_init(int en_input) {
 	XV_tpg tpg;
 	XV_tpg_Config *tpg_config;
 
@@ -60,7 +60,7 @@ int tpg_init() {
 	XV_tpg_Set_passthruEndY(&tpg, VIDEO_ROWS);
 	xil_printf("Test pattern generator configured for passthrough video\r\n");
 
-	XV_tpg_Set_enableInput(&tpg, 1);
+	XV_tpg_Set_enableInput(&tpg, en_input);
 	XV_tpg_EnableAutoRestart(&tpg);
 	XV_tpg_Start(&tpg);
 
