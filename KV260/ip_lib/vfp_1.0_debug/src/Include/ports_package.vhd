@@ -466,15 +466,15 @@ port (
 end component pixel_localization_9x9_window;
 component vfp_axi_stream is
     generic (
-    FRAME_WIDTH                     : natural    := 1280;
-    FRAME_HEIGHT                    : natural    := 720);
+    TDATA_WIDTH                     : natural    := 32;
+    FRAME_PIXEL_DEPTH               : natural    := 10;
+    FRAME_WIDTH                     : natural    := 1920;
+    FRAME_HEIGHT                    : natural    := 1080);
     port (
     s_axis_aclk                     : in std_logic;
     s_axis_aresetn                  : in std_logic;
     s_axis_tready                   : out std_logic;
-    s_axis_tdata                    : in std_logic_vector(23 downto 0);
-    s_axis_tstrb                    : in std_logic_vector(2 downto 0);
-    s_axis_tkeep                    : in std_logic_vector(2 downto 0);        
+    s_axis_tdata                    : in std_logic_vector(TDATA_WIDTH-1 downto 0);     
     s_axis_tlast                    : in std_logic;
     s_axis_tuser                    : in std_logic;
     s_axis_tvalid                   : in std_logic;

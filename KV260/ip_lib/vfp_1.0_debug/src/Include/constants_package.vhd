@@ -108,7 +108,7 @@ package constants_package is
     constant C_m_axis_mm2s_START_COUNT          : integer := 32;
     constant C_vfpConfig_DATA_WIDTH             : integer := 32;
     constant C_vfpConfig_ADDR_WIDTH             : integer := 8;
-    constant i_data_width                       : integer := 8;
+    constant i_data_width                       : integer := 10;
     constant s_data_width                       : integer := 16;
     constant b_data_width                       : integer := 32;
     constant i_precision                        : integer := 12;

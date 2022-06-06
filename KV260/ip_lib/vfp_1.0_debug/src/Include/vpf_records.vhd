@@ -22,15 +22,15 @@ type ty7sf is record
     n1               : integer;
     n2               : integer;
     n3               : integer;
-    k1               : sfixed(16 downto -3);
-    k2               : sfixed(16 downto -3);
-    k3               : sfixed(16 downto -3);
-    k4               : sfixed(16 downto -3);
-    k5               : sfixed(16 downto -3);
-    k6               : sfixed(16 downto -3);
-    k7               : sfixed(16 downto -3);
-    k8               : sfixed(16 downto -3);
-    k9               : sfixed(16 downto -3);
+    k1               : sfixed(14 downto -3);
+    k2               : sfixed(14 downto -3);
+    k3               : sfixed(14 downto -3);
+    k4               : sfixed(14 downto -3);
+    k5               : sfixed(14 downto -3);
+    k6               : sfixed(14 downto -3);
+    k7               : sfixed(14 downto -3);
+    k8               : sfixed(14 downto -3);
+    k9               : sfixed(14 downto -3);
 end record;
 type ty24sf_3 is record
     k1               : sfixed(26 downto -3);
@@ -603,9 +603,9 @@ type filters_size_rgb_integers is record
 end record;
 
 type rgbToSfRecord is record
-    red              : sfixed(9 downto 0);
-    green            : sfixed(9 downto 0);
-    blue             : sfixed(9 downto 0);
+    red              : sfixed(11 downto 0);
+    green            : sfixed(11 downto 0);
+    blue             : sfixed(11 downto 0);
 end record;
 type rgbToSf12Record is record
     red              : sfixed(11 downto 0);
@@ -628,9 +628,9 @@ type rgb_Sn_Sum_Tr_Record is record
     blue             : signed(13 downto 0);
 end record;
 type rgbSnSumTrRecord is record
-    red              : signed(12 downto 0);
-    green            : signed(12 downto 0);
-    blue             : signed(12 downto 0);
+    red              : signed(14 downto 0);
+    green            : signed(14 downto 0);
+    blue             : signed(14 downto 0);
 end record;
 type ty46sf_6 is record
     k1               : sfixed(36 downto -6);
@@ -1173,9 +1173,9 @@ type channel is record
     eof              : std_logic;
     xcnt             : integer;
     ycnt             : integer;
-    red              : std_logic_vector(7 downto 0);
-    green            : std_logic_vector(7 downto 0);
-    blue             : std_logic_vector(7 downto 0);
+    red              : std_logic_vector(9 downto 0);
+    green            : std_logic_vector(9 downto 0);
+    blue             : std_logic_vector(9 downto 0);
 end record;
 type channel_9bi is record
     valid            : std_logic;

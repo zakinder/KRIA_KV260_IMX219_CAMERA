@@ -9,6 +9,7 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "revision_number"
   ipgui::add_param $IPINST -name "FRAME_HEIGHT"
   ipgui::add_param $IPINST -name "FRAME_WIDTH"
+  ipgui::add_param $IPINST -name "FRAME_PIXEL_DEPTH"
 
 }
 
@@ -63,6 +64,15 @@ proc update_PARAM_VALUE.FRAME_HEIGHT { PARAM_VALUE.FRAME_HEIGHT } {
 
 proc validate_PARAM_VALUE.FRAME_HEIGHT { PARAM_VALUE.FRAME_HEIGHT } {
 	# Procedure called to validate FRAME_HEIGHT
+	return true
+}
+
+proc update_PARAM_VALUE.FRAME_PIXEL_DEPTH { PARAM_VALUE.FRAME_PIXEL_DEPTH } {
+	# Procedure called to update FRAME_PIXEL_DEPTH when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.FRAME_PIXEL_DEPTH { PARAM_VALUE.FRAME_PIXEL_DEPTH } {
+	# Procedure called to validate FRAME_PIXEL_DEPTH
 	return true
 }
 
@@ -141,5 +151,10 @@ proc update_MODELPARAM_VALUE.FRAME_WIDTH { MODELPARAM_VALUE.FRAME_WIDTH PARAM_VA
 proc update_MODELPARAM_VALUE.FRAME_HEIGHT { MODELPARAM_VALUE.FRAME_HEIGHT PARAM_VALUE.FRAME_HEIGHT } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.FRAME_HEIGHT}] ${MODELPARAM_VALUE.FRAME_HEIGHT}
+}
+
+proc update_MODELPARAM_VALUE.FRAME_PIXEL_DEPTH { MODELPARAM_VALUE.FRAME_PIXEL_DEPTH PARAM_VALUE.FRAME_PIXEL_DEPTH } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.FRAME_PIXEL_DEPTH}] ${MODELPARAM_VALUE.FRAME_PIXEL_DEPTH}
 }
 

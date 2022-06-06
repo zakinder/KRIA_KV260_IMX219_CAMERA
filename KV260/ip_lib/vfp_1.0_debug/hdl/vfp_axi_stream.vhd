@@ -16,13 +16,15 @@ use work.vpf_records.all;
 use work.ports_package.all;
 entity vfp_axi_stream is
     generic (
-    FRAME_WIDTH                     : natural    := 1280;
-    FRAME_HEIGHT                    : natural    := 720);
+    TDATA_WIDTH                     : natural    := 32;
+    FRAME_PIXEL_DEPTH               : natural    := 10;
+    FRAME_WIDTH                     : natural    := 1920;
+    FRAME_HEIGHT                    : natural    := 1080);
     port (
     s_axis_aclk                     : in std_logic;
     s_axis_aresetn                  : in std_logic;
     s_axis_tready                   : out std_logic;
-    s_axis_tdata                    : in std_logic_vector(23 downto 0);
+    s_axis_tdata                    : in std_logic_vector(TDATA_WIDTH-1 downto 0);
     s_axis_tstrb                    : in std_logic_vector(2 downto 0);
     s_axis_tkeep                    : in std_logic_vector(2 downto 0);        
     s_axis_tlast                    : in std_logic;
@@ -45,8 +47,8 @@ architecture arch_imp of vfp_axi_stream is
     signal Y1Cont            : integer := 0;
     signal Y2Cont            : integer := 0;
     
-    signal vdata             : std_logic_vector(23 downto 0);
-    type ram_type is array (0 to FRAME_WIDTH-1) of std_logic_vector(23 downto 0);
+    signal vdata             : std_logic_vector(TDATA_WIDTH-1 downto 0);
+    type ram_type is array (0 to FRAME_WIDTH-1) of std_logic_vector(TDATA_WIDTH-1 downto 0);
     signal rowbuffer     : ram_type := (others => (others => '0'));
 begin
         oCord_x                <= std_logic_vector(to_unsigned(Xcont, 16));
@@ -160,9 +162,9 @@ process (s_axis_aclk) begin
     end if;
 end process;
 
-   oRgb.red         <= vdata(23 downto 16);
-   oRgb.green       <= vdata(15 downto 8);
-   oRgb.blue        <= vdata(7 downto 0);
+   oRgb.red         <= vdata(29 downto 20);
+   oRgb.green       <= vdata(19 downto 10);
+   oRgb.blue        <= vdata(9 downto 0);
    oRgb.ycnt        <= Y2Cont;
    oRgb.xcnt        <= X1Cont;
    

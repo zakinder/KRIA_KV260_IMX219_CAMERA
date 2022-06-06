@@ -1,15 +1,10 @@
-
 #include "xvtc.h"
 #include "../DP_VIDEO/video_modes.h"
-
-
 int vtc_init(VideoMode video) {
 	XVtc vtc;
 	XVtc_Config *vtc_config;
     XVtc_SourceSelect SourceSelect;
     XVtc_Timing vtcTiming;
-
-
     if ( (vtc_config = XVtc_LookupConfig(XPAR_VTC_0_DEVICE_ID)) == NULL) {
 		xil_printf("XVtc_LookupConfig() failed\r\n");
 		return XST_FAILURE;
@@ -18,12 +13,9 @@ int vtc_init(VideoMode video) {
 		xil_printf("XVtc_CfgInitialize() failed\r\n");
 		return XST_FAILURE;
 	}
-
-
     //**************************************************************************************
     // VIDEO TIMINF CONTROLLER
     //**************************************************************************************
-
     vtcTiming.HActiveVideo          = video.width;    /**< Horizontal Active Video Size */
     vtcTiming.HFrontPorch           = video.hps - video.width;    /**< Horizontal Front Porch Size */
     vtcTiming.HSyncWidth            = video.hpe - video.hps;        /**< Horizontal Sync Width */
@@ -61,10 +53,6 @@ int vtc_init(VideoMode video) {
     XVtc_SetSource(&vtc, &SourceSelect);
     XVtc_EnableGenerator(&vtc);
     XVtc_Enable(&vtc);
-
-
-
 	xil_printf("Video timing generator initialized\r\n");
-
 	return XST_SUCCESS;
 }
