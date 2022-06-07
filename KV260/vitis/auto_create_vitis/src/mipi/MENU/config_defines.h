@@ -88,5 +88,7 @@
 #define cmds_quit               0x95BA400A
 #define cmds_space              0x20
 #define cmds_uart               0x95BA4834
+#define imxwrite                0x45E01E71
+#define imxread                 0x6FCB6D2
 /*****************************************************************************************************************/
 #endif // __SYSTEM_CONFIG_DEFINES_H__

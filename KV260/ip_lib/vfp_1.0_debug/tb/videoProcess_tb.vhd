@@ -19,9 +19,10 @@ generic (
         revision_number           : std_logic_vector(31 downto 0) := x"05202022";
         C_vfpConfig_DATA_WIDTH    : integer    := 32;
         C_vfpConfig_ADDR_WIDTH    : integer    := 8;
-        C_oVideo_TDATA_WIDTH      : integer    := 24;
+        C_oVideo_TDATA_WIDTH      : integer    := 32;
         C_oVideo_START_COUNT      : integer    := 32;
-        C_iVideo_TDATA_WIDTH      : integer    := 24;
+        C_iVideo_TDATA_WIDTH      : integer    := 32;
+        FRAME_PIXEL_DEPTH         : integer    := 10;
         FRAME_WIDTH               : natural    := 1280;
         FRAME_HEIGHT              : natural    := 720);
 port (
@@ -49,15 +50,15 @@ port (
         ovideo_aclk               : in std_logic;
         ovideo_aresetn            : in std_logic;
         ovideo_tvalid             : out std_logic;
-        ovideo_tkeep              : out std_logic_vector(2 downto 0);
+        ovideo_tkeep              : out std_logic_vector(3 downto 0);
         ovideo_tdata              : out std_logic_vector(C_oVideo_TDATA_WIDTH-1 downto 0);
         ovideo_tstrb              : out std_logic_vector((C_oVideo_TDATA_WIDTH/8)-1 downto 0);
         ovideo_tlast              : out std_logic;
         ovideo_tready             : in std_logic;
         ovideo_tuser              : out std_logic;
-        rgb_fr_plw_red            : out std_logic_vector(7 downto 0);
-        rgb_fr_plw_gre            : out std_logic_vector(7 downto 0);
-        rgb_fr_plw_blu            : out std_logic_vector(7 downto 0);
+        rgb_fr_plw_red            : out std_logic_vector(9 downto 0);
+        rgb_fr_plw_gre            : out std_logic_vector(9 downto 0);
+        rgb_fr_plw_blu            : out std_logic_vector(9 downto 0);
         rgb_fr_plw_sof            : out std_logic;
         rgb_fr_plw_eol            : out std_logic;
         rgb_fr_plw_eof            : out std_logic;
@@ -69,7 +70,7 @@ port (
         ivideo_aclk               : in std_logic;
         ivideo_aresetn            : in std_logic;
         ivideo_tready             : out std_logic;
-        ivideo_tkeep              : in std_logic_vector(2 downto 0);  
+        ivideo_tkeep              : in std_logic_vector(3 downto 0);  
         ivideo_tdata              : in std_logic_vector(C_iVideo_TDATA_WIDTH-1 downto 0);
         ivideo_tstrb              : in std_logic_vector((C_iVideo_TDATA_WIDTH/8)-1 downto 0);
         ivideo_tlast              : in std_logic;
@@ -78,9 +79,9 @@ port (
 end component;
     signal clk                : std_logic;
     signal reset              : std_logic;
-    signal tdata              : std_logic_vector(23 downto 0);
-    signal tstrb              : std_logic_vector(2 downto 0);
-    signal tkeep              : std_logic_vector(2 downto 0);
+    signal tdata              : std_logic_vector(31 downto 0);
+    signal tstrb              : std_logic_vector(3 downto 0);
+    signal tkeep              : std_logic_vector(3 downto 0);
     signal tlast              : std_logic;
     signal tuser              : std_logic;
     signal tvalid             : std_logic;
@@ -111,15 +112,15 @@ end component;
     signal ovideo_aclk               : std_logic;
     signal ovideo_aresetn            : std_logic;
     signal ovideo_tvalid             : std_logic;
-    signal ovideo_tkeep              : std_logic_vector(2 downto 0);
-    signal ovideo_tdata              : std_logic_vector(23 downto 0);
-    signal ovideo_tstrb              : std_logic_vector(2 downto 0);
+    signal ovideo_tkeep              : std_logic_vector(3 downto 0);
+    signal ovideo_tdata              : std_logic_vector(31 downto 0);
+    signal ovideo_tstrb              : std_logic_vector(3 downto 0);
     signal ovideo_tlast              : std_logic;
     signal ovideo_tready             : std_logic;
     signal ovideo_tuser              : std_logic;
-    signal rgb_fr_plw_red            : std_logic_vector(7 downto 0);
-    signal rgb_fr_plw_gre            : std_logic_vector(7 downto 0);
-    signal rgb_fr_plw_blu            : std_logic_vector(7 downto 0);
+    signal rgb_fr_plw_red            : std_logic_vector(9 downto 0);
+    signal rgb_fr_plw_gre            : std_logic_vector(9 downto 0);
+    signal rgb_fr_plw_blu            : std_logic_vector(9 downto 0);
     signal rgb_fr_plw_sof            : std_logic;
     signal rgb_fr_plw_eol            : std_logic;
     signal rgb_fr_plw_eof            : std_logic;
@@ -131,9 +132,9 @@ end component;
     signal ivideo_aclk               : std_logic;
     signal ivideo_aresetn            : std_logic;
     signal ivideo_tready             : std_logic;
-    signal ivideo_tkeep              : std_logic_vector(2 downto 0);  
-    signal ivideo_tdata              : std_logic_vector(23 downto 0);
-    signal ivideo_tstrb              : std_logic_vector(2 downto 0);
+    signal ivideo_tkeep              : std_logic_vector(3 downto 0);  
+    signal ivideo_tdata              : std_logic_vector(31 downto 0);
+    signal ivideo_tstrb              : std_logic_vector(3 downto 0);
     signal ivideo_tlast              : std_logic;
     signal ivideo_tuser              : std_logic; 
     signal ivideo_tvalid             : std_logic;
@@ -169,7 +170,7 @@ IMAGE_READ_INST : image_read_axi4_stream_interface
 generic map(
     enImageText           => false,
     enImageIndex          => false,
-    i_data_width          => 8,
+    i_data_width          => 10,
     test                  => testFolder,
     input_file            => readbmp,
     output_file           => "output_image")
@@ -189,9 +190,10 @@ generic map(
     revision_number           => x"05202022",
     C_vfpConfig_DATA_WIDTH    => 32,
     C_vfpConfig_ADDR_WIDTH    => 8,
-    C_oVideo_TDATA_WIDTH      => 24,
+    C_oVideo_TDATA_WIDTH      => 32,
     C_oVideo_START_COUNT      => 32,
-    C_iVideo_TDATA_WIDTH      => 24,
+    C_iVideo_TDATA_WIDTH      => 32,
+    FRAME_PIXEL_DEPTH         => 10,
     FRAME_WIDTH               => 128,
     FRAME_HEIGHT              => 128)
 port map (

@@ -74,7 +74,7 @@
 													be aligned to 256*/
 
 /************************** Variable Declarations ***************************/
-u8 Frame[BUFFERSIZE];
+u8 Frame[BUFFERSIZE] __attribute__ ((aligned(256)));
 XDpDma_FrameBuffer FrameBuffer;
 
 

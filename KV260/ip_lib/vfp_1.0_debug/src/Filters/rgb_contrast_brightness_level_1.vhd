@@ -18,7 +18,7 @@ use work.vpf_records.all;
 use work.ports_package.all;
 entity rgb_contrast_brightness_level_1 is
   generic (
-    contrast_val  : sfixed(16 downto -3) := to_sfixed(5.0,16,-3);
+    contrast_val  : sfixed(15 downto -3) := to_sfixed(5.0,15,-3);
     exposer_val   : integer := 8);
   port (
     clk       : in std_logic;
@@ -40,9 +40,9 @@ rgbToSf_P: process (clk,rst_l)begin
         ccRgb.rgbToSf.green  <= (others => '0');
         ccRgb.rgbToSf.blue   <= (others => '0');
     elsif rising_edge(clk) then
-        ccRgb.rgbToSf.red    <= to_sfixed("00" & iRgb.red,ccRgb.rgbToSf.red);
-        ccRgb.rgbToSf.green  <= to_sfixed("00" & iRgb.green,ccRgb.rgbToSf.green);
-        ccRgb.rgbToSf.blue   <= to_sfixed("00" & iRgb.blue,ccRgb.rgbToSf.blue);
+        ccRgb.rgbToSf.red    <= to_sfixed('0' & iRgb.red,ccRgb.rgbToSf.red);
+        ccRgb.rgbToSf.green  <= to_sfixed('0' & iRgb.green,ccRgb.rgbToSf.green);
+        ccRgb.rgbToSf.blue   <= to_sfixed('0' & iRgb.blue,ccRgb.rgbToSf.blue);
     end if;
 end process rgbToSf_P;
 syncValid_P: process (clk,rst_l)begin
@@ -109,8 +109,8 @@ end process;
 process (clk)begin
     if rising_edge(clk) then
         ccRgb.ccSf.k1           <= contrast_val;
-        ccRgb.ccSf.k2           <= to_sfixed(128.000,16,-3);
-        ccRgb.ccSf.k3           <= to_sfixed(exposer_val,16,-3);
+        ccRgb.ccSf.k2           <= to_sfixed(128.000,15,-3);
+        ccRgb.ccSf.k3           <= to_sfixed(exposer_val,15,-3);
     end if;
 end process;
 
@@ -138,9 +138,9 @@ process (clk)begin
       ccRgb.rgbSnSum.red      <= resize(ccRgb.ccProdTrSn.k1, ADD_RESULT_WIDTH);
       ccRgb.rgbSnSum.green    <= resize(ccRgb.ccProdTrSn.k5, ADD_RESULT_WIDTH);
       ccRgb.rgbSnSum.blue     <= resize(ccRgb.ccProdTrSn.k9, ADD_RESULT_WIDTH);
-      ccRgb.rgbSnSumTr.red    <= ccRgb.rgbSnSum.red(12 downto 0);
-      ccRgb.rgbSnSumTr.green  <= ccRgb.rgbSnSum.green(12 downto 0);
-      ccRgb.rgbSnSumTr.blue   <= ccRgb.rgbSnSum.blue(12 downto 0);
+      ccRgb.rgbSnSumTr.red    <= ccRgb.rgbSnSum.red(14 downto 0);
+      ccRgb.rgbSnSumTr.green  <= ccRgb.rgbSnSum.green(14 downto 0);
+      ccRgb.rgbSnSumTr.blue   <= ccRgb.rgbSnSum.blue(14 downto 0);
     end if;
 end process;
 

@@ -1391,10 +1391,10 @@ proc create_hier_cell_RX_VIDEO { parentCell nameHier } {
    CONFIG.C_ENABLE_ILA_AXI_MON {false} \
    CONFIG.C_MONITOR_TYPE {Native} \
    CONFIG.C_NUM_OF_PROBES {11} \
-   CONFIG.C_PROBE0_WIDTH {8} \
+   CONFIG.C_PROBE0_WIDTH {10} \
    CONFIG.C_PROBE10_WIDTH {16} \
-   CONFIG.C_PROBE1_WIDTH {8} \
-   CONFIG.C_PROBE2_WIDTH {8} \
+   CONFIG.C_PROBE1_WIDTH {10} \
+   CONFIG.C_PROBE2_WIDTH {10} \
    CONFIG.C_PROBE7_WIDTH {16} \
    CONFIG.C_PROBE8_WIDTH {16} \
    CONFIG.C_PROBE9_WIDTH {16} \
@@ -1473,8 +1473,8 @@ proc create_hier_cell_RX_VIDEO { parentCell nameHier } {
   connect_bd_intf_net -intf_net ps8_0_axi_periph_M06_AXI [get_bd_intf_pins vfpconfig] [get_bd_intf_pins vfp_0/vfpconfig]
   connect_bd_intf_net -intf_net v_demosaic_0_m_axis_video [get_bd_intf_pins v_demosaic_0/m_axis_video] [get_bd_intf_pins v_tpg_0/s_axis_video]
   connect_bd_intf_net -intf_net v_gamma_lut_0_m_axis_video [get_bd_intf_pins m_axis_video] [get_bd_intf_pins v_gamma_lut_0/m_axis_video]
-  connect_bd_intf_net -intf_net v_tpg_0_m_axis_video [get_bd_intf_pins v_gamma_lut_0/s_axis_video] [get_bd_intf_pins v_tpg_0/m_axis_video]
-  connect_bd_intf_net -intf_net vfp_0_ovideo [get_bd_intf_pins vfp_0/ivideo] [get_bd_intf_pins vfp_0/ovideo]
+  connect_bd_intf_net -intf_net v_tpg_0_m_axis_video [get_bd_intf_pins v_tpg_0/m_axis_video] [get_bd_intf_pins vfp_0/ivideo]
+  connect_bd_intf_net -intf_net vfp_0_ovideo [get_bd_intf_pins v_gamma_lut_0/s_axis_video] [get_bd_intf_pins vfp_0/ovideo]
 
   # Create port connections
   connect_bd_net -net dphy_clk_200M_1 [get_bd_pins dphy_clk_200M] [get_bd_pins mipi_csi2_rx_subsyst_0/dphy_clk_200M]
@@ -1712,10 +1712,8 @@ proc create_root_design { parentCell } {
   assign_bd_address -offset 0xA0070000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS_VIDEO/TO_PS/zynq_ultra_ps_e_0/Data] [get_bd_addr_segs PS_VIDEO/RX_VIDEO/v_tpg_0/s_axi_CTRL/Reg] -force
   assign_bd_address -offset 0xA0030000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS_VIDEO/TO_PS/zynq_ultra_ps_e_0/Data] [get_bd_addr_segs PS_VIDEO/RX_VIDEO/vfp_0/vfpconfig/vfpconfig_reg] -force
   assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces PS_VIDEO/V_DMA/axi_vdma_0/Data_MM2S] [get_bd_addr_segs PS_VIDEO/TO_PS/zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] -force
-  assign_bd_address -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces PS_VIDEO/V_DMA/axi_vdma_0/Data_MM2S] [get_bd_addr_segs PS_VIDEO/TO_PS/zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM] -force
   assign_bd_address -offset 0xC0000000 -range 0x20000000 -target_address_space [get_bd_addr_spaces PS_VIDEO/V_DMA/axi_vdma_0/Data_MM2S] [get_bd_addr_segs PS_VIDEO/TO_PS/zynq_ultra_ps_e_0/SAXIGP0/HPC0_QSPI] -force
   assign_bd_address -offset 0x00000000 -range 0x80000000 -target_address_space [get_bd_addr_spaces PS_VIDEO/V_DMA/axi_vdma_0/Data_S2MM] [get_bd_addr_segs PS_VIDEO/TO_PS/zynq_ultra_ps_e_0/SAXIGP0/HPC0_DDR_LOW] -force
-  assign_bd_address -offset 0xFF000000 -range 0x01000000 -target_address_space [get_bd_addr_spaces PS_VIDEO/V_DMA/axi_vdma_0/Data_S2MM] [get_bd_addr_segs PS_VIDEO/TO_PS/zynq_ultra_ps_e_0/SAXIGP0/HPC0_LPS_OCM] -force
   assign_bd_address -offset 0xC0000000 -range 0x20000000 -target_address_space [get_bd_addr_spaces PS_VIDEO/V_DMA/axi_vdma_0/Data_S2MM] [get_bd_addr_segs PS_VIDEO/TO_PS/zynq_ultra_ps_e_0/SAXIGP0/HPC0_QSPI] -force
 
   # Exclude Address Segments
@@ -1728,6 +1726,7 @@ proc create_root_design { parentCell } {
   # Restore current instance
   current_bd_instance $oldCurInst
 
+  validate_bd_design
   save_bd_design
 }
 # End of create_root_design()
@@ -1739,6 +1738,4 @@ proc create_root_design { parentCell } {
 
 create_root_design ""
 
-
-common::send_gid_msg -ssname BD::TCL -id 2053 -severity "WARNING" "This Tcl script was generated from a block design that has not been validated. It is possible that design <$design_name> may result in errors during validation."
 

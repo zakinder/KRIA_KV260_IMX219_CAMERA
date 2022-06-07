@@ -19,9 +19,9 @@ generic (
 port (
     clk                : in  std_logic;
     reset              : in  std_logic;
-    tdata              : out std_logic_vector(23 downto 0);
-    tstrb              : out std_logic_vector(2 downto 0);
-    tkeep              : out std_logic_vector(2 downto 0);
+    tdata              : out std_logic_vector(31 downto 0);
+    tstrb              : out std_logic_vector(3 downto 0);
+    tkeep              : out std_logic_vector(3 downto 0);
     tlast              : out std_logic;
     tuser              : out std_logic;
     tvalid             : out std_logic);
@@ -76,7 +76,7 @@ process (clk) begin
             else
                 tuser        <= '0';
             end if;
-            tdata            <=  (rgb4Read.red & rgb4Read.green &  rgb4Read.blue);
+            tdata            <=  ("00" & rgb4Read.red & rgb4Read.green &  rgb4Read.blue);
             
             if (crd1xy.x  = FRAME_WIDTH-1 and crd1xy.y = FRAME_HEIGHT-1) then
                 VIDEO_STATES     <= VIDEO_SOF_OFF;
@@ -96,7 +96,7 @@ image_read_inst: read_image
 generic map (
     enImageText           => false,
     enImageIndex          => false,
-    i_data_width          => 8,
+    i_data_width          => 10,
     test                  => test,
     input_file            => readbmp,
     output_file           => "output_image")
@@ -130,6 +130,6 @@ process (clk) begin
 end process;
 tlast            <= '1' when (crd4xy.x = FRAME_WIDTH-1) else '0';
 tvalid           <= tvalid_syn;
-tstrb            <= "000";
-tkeep            <= "111";
+tstrb            <= "0000";
+tkeep            <= "1111";
 end Behavioral;

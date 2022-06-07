@@ -144,28 +144,28 @@ package constants_package is
     constant STREAM_TESTPATTERN8                : integer :=8;
     -------------------------------------------------------------------------
     
-    constant blurMacKernel_1                    : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_2                    : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_3                    : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_4                    : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_5                    : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_6                    : unsigned(i_data_width-1 downto 0)         :=x"05";
-    constant blurMacKernel_7                    : unsigned(i_data_width-1 downto 0)         :=x"05";
-    constant blurMacKernel_8                    : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_9                    : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_10                   : unsigned(i_data_width-1 downto 0)         :=x"05";
-    constant blurMacKernel_11                   : unsigned(i_data_width-1 downto 0)         :=x"05";
-    constant blurMacKernel_12                   : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_13                   : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_14                   : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_15                   : unsigned(i_data_width-1 downto 0)         :=x"02";
-    constant blurMacKernel_16                   : unsigned(i_data_width-1 downto 0)         :=x"02";
+    constant blurMacKernel_1                    : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_2                    : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_3                    : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_4                    : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_5                    : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_6                    : unsigned(i_data_width-1 downto 0)         :="0000000101";
+    constant blurMacKernel_7                    : unsigned(i_data_width-1 downto 0)         :="0000000101";
+    constant blurMacKernel_8                    : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_9                    : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_10                   : unsigned(i_data_width-1 downto 0)         :="0000000101";
+    constant blurMacKernel_11                   : unsigned(i_data_width-1 downto 0)         :="0000000101";
+    constant blurMacKernel_12                   : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_13                   : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_14                   : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_15                   : unsigned(i_data_width-1 downto 0)         :="0000000010";
+    constant blurMacKernel_16                   : unsigned(i_data_width-1 downto 0)         :="0000000010";
     
     
-    constant white                              : std_logic_vector(i_data_width-1 downto 0) :=x"FF";
-    constant black                              : std_logic_vector(i_data_width-1 downto 0) :=x"00";
-    constant whiteUn                            : unsigned(i_data_width-1 downto 0)         :=x"FF";
-    constant blackUn                            : unsigned(i_data_width-1 downto 0)         :=x"00";
+    constant white                              : std_logic_vector(i_data_width-1 downto 0) :="1111111111";
+    constant black                              : std_logic_vector(i_data_width-1 downto 0) :="0000000000";
+    constant whiteUn                            : unsigned(i_data_width-1 downto 0)         :="1111111111";
+    constant blackUn                            : unsigned(i_data_width-1 downto 0)         :="0000000000";
     -------------------------------------------------------------------------
     constant FONT_WIDTH                         : integer := 8;
     constant FONT_HEIGHT                        : integer := 16;

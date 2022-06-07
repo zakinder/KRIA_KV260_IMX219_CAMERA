@@ -25,6 +25,8 @@ int main()
     init_platform();
     init_camera();
     print("Camera Configuration Complete\n\r");
+    per_write_reg(REG16,0);
+    per_write_reg(REG15,0);
     tpg_init(1);
     vtc_init(video);
     pFrames[0] = frameBuf[0];

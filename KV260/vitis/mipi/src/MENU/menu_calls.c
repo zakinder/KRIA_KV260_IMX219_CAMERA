@@ -22,17 +22,19 @@ void menu_calls(ON_OFF) {
     u32 k_number_value;
     u8 Send_Buffer [10];
     u8 Recv_Buffer [10];
-	 per_write_reg(REG1,2000);
-	 per_write_reg(REG2,0xff06);
-	 per_write_reg(REG3,0xff83);
-	 per_write_reg(REG4,0xff83);
-	 per_write_reg(REG5,2000);
-	 per_write_reg(REG6,0xff06);
-	 per_write_reg(REG7,0xff06);
-	 per_write_reg(REG8,0xff83);
-	 per_write_reg(REG9,2000);
-	 per_write_reg(REG0,1);
-	 per_write_reg(REG11,2);
+//	 per_write_reg(REG1,2000);
+//	 per_write_reg(REG2,0xff06);
+//	 per_write_reg(REG3,0xff83);
+//	 per_write_reg(REG4,0xff83);
+//	 per_write_reg(REG5,2000);
+//	 per_write_reg(REG6,0xff06);
+//	 per_write_reg(REG7,0xff06);
+//	 per_write_reg(REG8,0xff83);
+//	 per_write_reg(REG9,2000);
+//	 per_write_reg(REG0,1);
+//	 per_write_reg(REG11,6);
+
+	 usleep(100000);
 
     while (menu_calls_enable == TRUE)
     {
@@ -62,7 +64,7 @@ void menu_calls(ON_OFF) {
         case kernal:
             printf("Enter k_number\n");
             menu_print_prompt();
-            k_number = uart_prompt_io();
+            k_number = uart_prompt_io()*4;
             if (k_number == 0)
             {
                 printf("Enter K Number Value\n");

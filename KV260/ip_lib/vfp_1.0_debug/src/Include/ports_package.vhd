@@ -1108,7 +1108,7 @@ port (
 end component rgb_contrast_brightness;
 component rgb_contrast_brightness_level_1 is
 generic (
-    contrast_val  : sfixed(16 downto -3) := to_sfixed(5.0,16,-3);
+    contrast_val  : sfixed(15 downto -3) := to_sfixed(5.0,15,-3);
     exposer_val                 : integer := 8);
 port (
     clk                         : in std_logic;
@@ -1156,7 +1156,7 @@ port (
     clk                         : in std_logic;
     rst_l                       : in std_logic;
     k_config_number             : in integer;
-    coefficients                : in coefficient_values;
+    coefficients_in             : in coefficient_values;
     coefficients_out            : out coefficient_values;
     iRgb                        : in channel;
     oRgb                        : out channel);
@@ -1730,9 +1730,9 @@ generic (
 port (
     clk                : in  std_logic;
     reset              : in  std_logic;
-    tdata              : out std_logic_vector(23 downto 0);
-    tstrb              : out std_logic_vector(2 downto 0);
-    tkeep              : out std_logic_vector(2 downto 0);
+    tdata              : out std_logic_vector(31 downto 0);
+    tstrb              : out std_logic_vector(3 downto 0);
+    tkeep              : out std_logic_vector(3 downto 0);
     tlast              : out std_logic;
     tuser              : out std_logic;
     tvalid             : out std_logic);

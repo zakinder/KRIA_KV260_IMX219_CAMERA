@@ -22,7 +22,7 @@ entity read_image is
 generic (
     enImageText   : boolean := false;
     enImageIndex  : boolean := false;
-    i_data_width  : integer := 8;
+    i_data_width  : integer := 10;
     test          : string  := "folder";
     input_file    : string  := "input_image";
     output_file   : string  := "output_image");
@@ -94,7 +94,7 @@ ImageFrameP: process
         character'pos(header(27)) = 0
         report "Color planes is not 1" severity failure;
     -- Check that the number of bits per pixel is 24
-    assert character'pos(header(28)) = 24 and
+    assert character'pos(header(28)) = 32 and
         character'pos(header(29)) = 0
         report "Bits per pixel is not 24" severity failure;
     -- Read image width

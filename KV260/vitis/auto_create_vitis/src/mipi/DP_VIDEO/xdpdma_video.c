@@ -74,7 +74,7 @@
 													be aligned to 256*/
 
 /************************** Variable Declarations ***************************/
-u8 Frame[BUFFERSIZE];
+u8 Frame[BUFFERSIZE] __attribute__ ((aligned(256)));
 XDpDma_FrameBuffer FrameBuffer;
 
 
@@ -146,7 +146,7 @@ int DpdmaVideoExample(Run_Config *RunCfgPtr,u8* Frame)
 	//printf  ("Generating Overlay:@ Address %x 1ST PIXEL VALUE %i\n",adrSof,(unsigned)(Xil_In8(adrSof) & 0xff));
 	SetupInterrupts(RunCfgPtr);
 	xil_printf("Generating Overlay.....\n\r");
-	//GraphicsOverlay(Frame, RunCfgPtr);
+	GraphicsOverlay(Frame, RunCfgPtr);
 
 	/* Populate the FrameBuffer structure with the frame attributes */
 	FrameBuffer.Address = (INTPTR)Frame;
@@ -179,7 +179,7 @@ void InitRunConfig(Run_Config *RunCfgPtr)
 		RunCfgPtr->AVBufPtr  = &AVBuf;
 		RunCfgPtr->DpDmaPtr  = &DpDma;
 		RunCfgPtr->VideoMode = XVIDC_VM_1920x1080_60_P;
-		RunCfgPtr->Bpc		 = XVIDC_BPC_8;//XVIDC_BPC_8;
+		RunCfgPtr->Bpc		 = XVIDC_BPC_10;//XVIDC_BPC_8;
 		RunCfgPtr->ColorEncode			= XDPPSU_CENC_RGB;
 		RunCfgPtr->UseMaxCfgCaps		= 1;
 		RunCfgPtr->LaneCount			= LANE_COUNT_2;
@@ -241,10 +241,10 @@ int InitDpDmaSubsystem(Run_Config *RunCfgPtr)
 	XDpDma_SetQOS(RunCfgPtr->DpDmaPtr, 11);
 	/* Enable the Buffers required by Graphics Channel */
 	//XAVBuf_EnableGraphicsBuffers(RunCfgPtr->AVBufPtr, 1);
-	XAVBuf_SetInputLiveVideoFormat(&AVBufPtr, RGB_8BPC);
+	XAVBuf_SetInputLiveVideoFormat(&AVBufPtr, RGB_10BPC);
 	XAVBuf_EnableVideoBuffers(&AVBufPtr, 1);
 	/* Set the output Video Format */
-	XAVBuf_SetOutputVideoFormat(AVBufPtr, RGB_8BPC);
+	XAVBuf_SetOutputVideoFormat(AVBufPtr, RGB_10BPC);
 
 	/* Select the Input Video Sources.
 	 * Here in this example we are going to demonstrate

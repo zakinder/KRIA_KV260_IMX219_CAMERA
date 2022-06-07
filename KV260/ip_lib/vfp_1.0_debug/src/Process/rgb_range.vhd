@@ -114,6 +114,8 @@ process (clk) begin
             i2Rgb.red           <= 247;
         elsif (i1Rgb.red   >= 250 and i1Rgb.red   <= 255) then
             i2Rgb.red           <= 253;
+        else
+            i2Rgb.red           <= i1Rgb.red;
         end if;
     end if;
 end process;
@@ -171,6 +173,8 @@ process (clk) begin
             i2Rgb.green           <= 247;
         elsif (i1Rgb.green   >= 250 and i1Rgb.green   <= 255) then
             i2Rgb.green           <= 253;
+        else
+            i2Rgb.green           <= i1Rgb.green;
         end if;
     end if;
 end process;
@@ -228,12 +232,14 @@ process (clk) begin
             i2Rgb.blue           <= 247;
         elsif (i1Rgb.blue   >= 250 and i1Rgb.blue   <= 255) then
             i2Rgb.blue           <= 253;
+        else
+            i2Rgb.blue           <= i1Rgb.blue;
         end if;
     end if;
 end process;
- oRgb.red   <= std_logic_vector(to_unsigned(i2Rgb.red, 8));
- oRgb.green <= std_logic_vector(to_unsigned(i2Rgb.green, 8));
- oRgb.blue  <= std_logic_vector(to_unsigned(i2Rgb.blue, 8));
+ oRgb.red   <= std_logic_vector(to_unsigned(i2Rgb.red, 10));
+ oRgb.green <= std_logic_vector(to_unsigned(i2Rgb.green, 10));
+ oRgb.blue  <= std_logic_vector(to_unsigned(i2Rgb.blue, 10));
  oRgb.valid <= i1Rgb.valid;
  oRgb.eol   <= rgbSyncEol;
  oRgb.sof   <= rgbSyncSof;
