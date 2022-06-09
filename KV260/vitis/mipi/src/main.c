@@ -17,16 +17,21 @@ XAxiVdma vdma;
 XAxiVdma_DmaSetup vdmaDMA;
 XAxiVdma_Config *vdmaConfig;
 VideoMode video;
-u32 frameBuf[DISPLAY_NUM_FRAMES][DEMO_MAX_FRAME];
+u32 frameBuf[DISPLAY_NUM_FRAMES][DEMO_MAX_FRAME] __attribute__ ((aligned(256)));
 u32 *pFrames[DISPLAY_NUM_FRAMES];
 int main()
 {
     video = VMODE_1920x1080;
     init_platform();
-    init_camera();
-    print("Camera Configuration Complete\n\r");
+    per_write_reg(REG11,3);
+    per_write_reg(REG12,3);
+    per_write_reg(REG13,3);
     per_write_reg(REG16,0);
-    per_write_reg(REG15,0);
+    per_write_reg(REG15,1);
+    init_camera();
+    gamma_lut_init();
+    demosaic_init();
+    print("Camera Configuration Complete\n\r");
     tpg_init(1);
     vtc_init(video);
     pFrames[0] = frameBuf[0];
@@ -50,9 +55,9 @@ int main()
     XAxiVdma_StartParking(&vdma, 0, XAXIVDMA_WRITE);
     XAxiVdma_DmaStart(&vdma, XAXIVDMA_READ);
     XAxiVdma_StartParking(&vdma, 0, XAXIVDMA_READ);
+    //xil_printf("frame addr %x\n\r",vdmaDMA.FrameStoreStartAddr[0]);
+	//printf  ("Generating Overlay:@ Address %x 1ST PIXEL VALUE %i\n",vdmaDMA.FrameStoreStartAddr[0],(unsigned)(Xil_In8(vdmaDMA.FrameStoreStartAddr[0]) & 0xff));
     print("Vdma Configuration Complete\n\r");
-    gamma_lut_init();
-    demosaic_init();
     run_dppsu(vdmaDMA.FrameStoreStartAddr[0]);
     print("Entire Video Pipeline Activated\r\n");
      while(1){

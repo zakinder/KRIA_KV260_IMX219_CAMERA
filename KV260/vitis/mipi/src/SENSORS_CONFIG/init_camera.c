@@ -2,10 +2,8 @@
 #include <xil_printf.h>
 #include <xil_types.h>
 #include <xstatus.h>
-
 #include "../SENSORS_CONFIG/camera_sensors.h"
 #include "../SENSORS_CONFIG/I2c_transections.h"
-
 XIicPs iic_cam;
 #define IIC_DEVICEID        XPAR_XIICPS_0_DEVICE_ID
 #define IIC_SCLK_RATE		100000

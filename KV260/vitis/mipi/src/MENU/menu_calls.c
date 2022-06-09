@@ -12,7 +12,7 @@
 XIicPs imx219_i2c_cam;
 #define IIC_DEVICEID        XPAR_XIICPS_0_DEVICE_ID
 void menu_calls(ON_OFF) {
-    XIicPs_Config *imx219_conf;
+
     u8 sensor_id[2];
     int menu_calls_enable = ON_OFF;
     int Status;
@@ -127,38 +127,11 @@ void menu_calls(ON_OFF) {
             	current_state = kernal;break;
             }
         case imxwrite:
-            printf("Enter imx219 reg address\n");
-            menu_print_prompt();
-            k_number = uart_prompt_io();
-            if (k_number == quit)
-            {
-                printf("Entered Quit\n");
-                current_state = mainmenu;break;
-            }
-            else
-            {
-                printf("Enter imx219 reg data\n");
-                menu_print_prompt();
-                k_number_value = uart_prompt_io();
-                write_read_imx219_camera_reg(imx219_i2c_cam,k_number,k_number_value);
-            	current_state = imxwrite;break;
-            }
+        	tpg_init(0);
+        	current_state = mainmenu;break;
         case imxread:
-            printf("Enter imx219 reg address\n");
-            menu_print_prompt();
-            k_number = uart_prompt_io();
-            if (k_number == quit)
-            {
-                printf("Entered Quit\n");
-                current_state = mainmenu;break;
-            }
-            else
-            {
-                imx219_read(imx219_i2c_cam,k_number,&sensor_id[0]);
-
-                printf("IMX219 Reg Address = %x, Read Value = %x \n",k_number,sensor_id[0]);
-            	current_state = mainmenu;break;
-            }
+        	tpg_init(1);
+        	current_state = mainmenu;break;
         case quit:
             menu_calls_enable = FALSE;
             break;
